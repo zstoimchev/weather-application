@@ -1,3 +1,46 @@
+# JetBrains Rider specific
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# .NET specific
+**/[Bb]in/
+**/[Oo]bj/
+**/[Ll]ogs/
+**/[Pp]ackages/
+*.csproj.user
+*.pubxml
+*.snk
+*.vspscc
+*.vssscc
+*.tmp_proj
+*.userosscache
+*.csproj
+*.cache
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.config
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Angular specific
+# Compiled JavaScript files
+**/*.js
+**/*.js.map
+
+# Angular AOT files
+**/*.ngfactory.js
+**/*.ngstyle.js
+
+# Angular Ivy Workspaces
+**/ngcc-lock-*.json
+**/ng-package-lock.json
+
 # Logs
 logs
 *.log
@@ -128,3 +171,20 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# Local development-specific files
+*.swp
+*.tmp
+*.temp
+
+# Angular build output
+/dist/
+
+# Other potential build directories
+/build/
+/out/
+
+# OS generated files
+.DS_Store
+Thumbs.db
