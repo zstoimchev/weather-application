@@ -1,3 +1,6 @@
+using WeatherApplicationBackend;
+using Newtonsoft.Json;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,8 +24,20 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
+app.MapGet("/", () => "hello");
+
+app.MapGet("/forecast", async () =>
+{
+    HttpClient client = new HttpClient();
+    HttpResponseMessage response = await client.GetAsync("http://api.weatherapi.com/v1/current.json?key=88b49556d03343c0a4c205823241505&q=Koper&aqi=no");
+    response.EnsureSuccessStatusCode();
+    string responseBody = await response.Content.ReadAsStringAsync();
+    Forecast data = JsonConvert.DeserializeObject<Forecast>(responseBody);
+    return data;
+});
+
 app.MapGet("/weatherforecast", () =>
-    {
+{
         var forecast = Enumerable.Range(1, 5).Select(index =>
                 new WeatherForecast
                 (
